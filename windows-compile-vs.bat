@@ -34,6 +34,7 @@ set PHP_MORTON_VER=0.1.2
 set PHP_LIBDEFLATE_VER=0.1.0
 set PHP_XXHASH_VER=0.1.1
 set PHP_XDEBUG_VER=3.1.5
+set EXT_SNAPPY_VERSION=master
 
 set script_path=%~dp0
 set log_file=%script_path%compile.log
@@ -211,6 +212,13 @@ git checkout %PHP_CRYPTO_VER% >>"%log_file%" 2>&1 || exit 1
 git submodule update --init --recursive >>"%log_file%" 2>&1 || exit 1
 cd /D ..
 
+call :pm-echo " - crypto: downloading %EXT_SNAPPY_VERSION%..."
+git clone https://github.com/kjdev/php-ext-snappy.git snappy >>"%log_file%" 2>&1 || exit 1
+cd /D snappy
+git checkout %EXT_SNAPPY_VERSION% >>"%log_file%" 2>&1 || exit 1
+git submodule update --init --recursive >>"%log_file%" 2>&1 || exit 1
+cd /D ..
+
 cd /D ..\..
 
 :skip
@@ -235,6 +243,7 @@ call configure^
  --enable-chunkutils2=shared^
  --enable-com-dotnet^
  --enable-ctype^
+ --enable-snappy^
  --enable-fileinfo=shared^
  --enable-filter^
  --enable-hash^
