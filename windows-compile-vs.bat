@@ -212,7 +212,7 @@ git checkout %PHP_CRYPTO_VER% >>"%log_file%" 2>&1 || exit 1
 git submodule update --init --recursive >>"%log_file%" 2>&1 || exit 1
 cd /D ..
 
-call :pm-echo " - crypto: downloading %EXT_SNAPPY_VERSION%..."
+call :pm-echo " - snappy: downloading %EXT_SNAPPY_VERSION%..."
 git clone https://github.com/kjdev/php-ext-snappy.git snappy >>"%log_file%" 2>&1 || exit 1
 cd /D snappy
 git checkout %EXT_SNAPPY_VERSION% >>"%log_file%" 2>&1 || exit 1
