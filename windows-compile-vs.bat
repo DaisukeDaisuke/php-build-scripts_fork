@@ -237,6 +237,7 @@ call configure^
  --enable-ctype^
  --enable-fileinfo=shared^
  --enable-filter^
+ --enable-ftp^
  --enable-hash^
  --enable-igbinary=shared^
  --enable-json^
