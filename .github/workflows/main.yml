@@ -196,7 +196,7 @@ jobs:
           fi
 
       - name: Update latest branch release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           artifacts: |
             ${{ github.workspace }}/Linux-PM*/*.tar.gz
@@ -210,7 +210,7 @@ jobs:
           bodyFile: ${{ github.workspace }}/changelog.md
 
       - name: Publish unique release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           artifacts: |
             ${{ github.workspace }}/Linux-PM*/*.tar.gz
